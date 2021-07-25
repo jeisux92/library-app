@@ -1,0 +1,24 @@
+<mat-dialog-content [formGroup]="form" (keydown.enter)="form.valid && createOrUpdate()">
+
+    <h3>{{data?'Editar libro':'Ingresar nuevo libro'}}</h3>
+    <div>
+
+        <mat-form-field>
+            <input matInput placeholder="Titulo" formControlName="title">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Autor" formControlName="author">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="Año" formControlName="year">
+        </mat-form-field>
+
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="accent" mat-dialog-close tabindex="-1">Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="!form.valid" tabindex="-1"
+        (click)="createOrUpdate()">{{data?'Editar':'Crear'}}</button>
+</mat-dialog-actions>
